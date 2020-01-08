@@ -32,14 +32,20 @@ public class ActivitiController {
     @RequestMapping(value = "startByKey", method = RequestMethod.GET)
     public String startByKey(@RequestParam(value = "key") String key) {
         Map<String, Object> variables = new HashMap<String, Object>();
-        variables.put("inputUser", "xiaoliwen");
+        variables.put("title", "hello world");
         return service.startByKey(key, variables);
+    }
+
+    @RequestMapping(value = "processVariableValueLike", method = RequestMethod.GET)
+    public List<Task> processVariableValueLike(@RequestParam(value = "uid") String uid, @RequestParam(value = "likeStr") String listStr) {
+        return service.processVariableValueLike(uid, listStr);
     }
 
     @RequestMapping(value = "processList", method = RequestMethod.GET)
     public List<ProcessDefinition> processList() {
         return service.processlist();
     }
+
     @RequestMapping(value = "completeTaskById", method = RequestMethod.GET)
     public void completeTaskById(@RequestParam(value = "taskId") String taskId) {
         service.completeTaskById(taskId);

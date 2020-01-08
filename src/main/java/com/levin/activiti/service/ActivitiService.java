@@ -115,4 +115,13 @@ public class ActivitiService {
                 .getId();
         return deploymentId;
     }
+
+    public List<Task> processVariableValueLike(String uid, String likeStr) {
+        List<Task> tasks = taskService.createTaskQuery().taskAssignee(uid).processVariableValueLike("title", likeStr).list();
+        for (Task t : tasks) {
+            System.out.println(t);
+        }
+        return tasks;
+//        return taskService.createTaskQuery().taskAssignee(uid).processVariableValueLike("title", likeStr).list();
+    }
 }
