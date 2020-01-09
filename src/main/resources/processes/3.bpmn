@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+    <process id="termTest" isClosed="false" isExecutable="true" name="termTest" processType="None">
+        <startEvent id="start_1" name="StartEvent"/>
+        <endEvent id="_8" name="EndEvent"/>
+        <userTask activiti:assignee="${product}" activiti:exclusive="true" id="_9" name="产品审核"/>
+        <userTask activiti:assignee="${need}" activiti:exclusive="true" id="_10" name="需求审核"/>
+        <userTask activiti:assignee="${salary}" activiti:exclusive="true" id="_11" name="财务审核"/>
+        <userTask activiti:assignee="${user}" activiti:exclusive="true" id="_12" name="发起人测试"/>
+        <sequenceFlow id="_13" sourceRef="start_1" targetRef="_9"/>
+        <sequenceFlow id="_14" sourceRef="_9" targetRef="_10"/>
+        <sequenceFlow id="_15" sourceRef="_10" targetRef="_11"/>
+        <sequenceFlow id="_16" sourceRef="_11" targetRef="_12"/>
+        <sequenceFlow id="_17" sourceRef="_12" targetRef="_8"/>
+    </process>
+</definitions>

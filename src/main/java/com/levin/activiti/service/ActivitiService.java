@@ -117,7 +117,7 @@ public class ActivitiService {
     }
 
     public List<Task> processVariableValueLike(String uid, String likeStr) {
-        List<Task> tasks = taskService.createTaskQuery().taskAssignee(uid).processVariableValueLike("title", likeStr).list();
+        List<Task> tasks = taskService.createTaskQuery().taskAssignee(uid).includeProcessVariables().processVariableValueLike("title", likeStr).list();
         for (Task t : tasks) {
             System.out.println(t);
         }

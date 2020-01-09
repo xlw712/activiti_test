@@ -30,9 +30,13 @@ public class ActivitiController {
     }
 
     @RequestMapping(value = "startByKey", method = RequestMethod.GET)
-    public String startByKey(@RequestParam(value = "key") String key) {
+    public String startByKey(@  RequestParam(value = "key") String key) {
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("title", "hello world");
+        variables.put("product", "xiaoliwen");
+        variables.put("need", "zhanglixiang");
+        variables.put("salary", "chenchen");
+        variables.put("user", "balabala");
         return service.startByKey(key, variables);
     }
 
